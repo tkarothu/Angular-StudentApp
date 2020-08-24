@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="button-container">
+        <button type="button" class="btn btn-primary" (click)="navigate()" (keydown.enter)="navigate()">
+            Create Student
+        </button>
+        <button type="button" class="btn btn-primary" (click)="loadTable()" (keydown.enter)="loadTable()">Find All Students</button>
+    </div>
+    <router-outlet></router-outlet>
+</div>

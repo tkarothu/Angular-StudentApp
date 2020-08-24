@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="table-responsive-md">
+        <table class="table-position table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Address</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let list of studentList">
+                    <th scope="row">{{list.id}}</th>
+                    <td>{{list.name}}</td>
+                    <td>{{list.address}}</td>
+                  </tr>
+                </tbody>
+              </table>
+</div>
+</div>
+

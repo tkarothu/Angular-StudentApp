@@ -1,0 +1,30 @@
+.form-container{
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    position: relative;
+    top:100px;
+    margin:0 auto;
+    border:1px solid gray;
+    border-radius: 5px;
+    padding:20px;
+
+}
+.form-field{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.adress-field{
+    display: flex;
+    flex-direction: column;
+
+}
+.btn-style{
+    width:100px;
+}
+.alertWidth{
+    width:50%;
+    margin: 0 auto;
+    margin-top: 10px;
+}

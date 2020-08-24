@@ -1,0 +1,12 @@
+.button-container{
+    display: flex;
+    width:50%;
+    justify-content: space-around;
+    margin:auto;
+    position: relative;
+    top: 100px;
+    border: 1px solid gray;
+    border-radius:5px;
+    height:100px;
+    padding:25px 0;
+}
