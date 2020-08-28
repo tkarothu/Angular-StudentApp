@@ -1,5 +1,6 @@
 import {Component, OnInit } from '@angular/core';
 import { StudentGridService } from './service/student-grid.service';
+import { StudentResponse } from '../models/studentResponse';
 @Component({
   selector: 'app-student-grid',
   templateUrl: './student-grid.component.html',
@@ -7,7 +8,7 @@ import { StudentGridService } from './service/student-grid.service';
 })
 export class StudentGridComponent implements OnInit {
 
-  studentList:any;
+  studentList: StudentResponse[];
   loading: boolean;
 
   constructor(public studentGridService: StudentGridService) { }
@@ -16,7 +17,7 @@ export class StudentGridComponent implements OnInit {
     this.loading = true;
     this.studentGridService.getStudents().subscribe(res => {
       this.loading =  false;
-      if(res){
+      if ( res){
        this.studentList = res;
       }
     });

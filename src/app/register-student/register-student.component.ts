@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RegisterStudentService } from './service/register-student.service';
+import { RegisterForm } from '../models/registerForm';
 
 @Component({
   selector: 'app-register-student',
@@ -9,24 +10,17 @@ import { RegisterStudentService } from './service/register-student.service';
 })
 export class RegisterStudentComponent implements OnInit {
 
-  registrationForm = new FormGroup({
+  registrationForm  = new FormGroup({
     stdName: new FormControl('', [
       Validators.required,
       Validators.minLength(4)
     ]),
-     stdCourse: new FormControl('',[
-      Validators.required
-    ]),
-    stdAdress: new FormGroup({
-      street: new FormControl(''),
-      city: new FormControl(''),
-      state: new FormControl(''),
-      zip: new FormControl('')
-    })
+     stdCourse: new FormControl('', [Validators.required])
   });
   public postId: string;
   public loading: boolean;
   public showAlert: boolean;
+  public registerFormValue: RegisterForm;
 
   constructor(public registerStudentService: RegisterStudentService) { }
 
@@ -35,7 +29,8 @@ export class RegisterStudentComponent implements OnInit {
 
   onSubmit() {
     this.loading = true;
-    this.registerStudentService.registerStudent(this.registrationForm.value).subscribe(
+    this.registerFormValue = this.registrationForm.value;
+    this.registerStudentService.registerStudent(this.registerFormValue).subscribe(
         data => {
          if ( data.studentId){
           this.loading = false;

@@ -12,32 +12,32 @@ import { Role } from './models/role';
 
 const routes: Routes = [
   {
-    path:'',
+    path: '',
     component: HomeComponent,
     canActivate: [AuthGuard]
   },
   {
-    path:'landing-page',
-    component:LandingPageComponent,
+    path: 'landing-page',
+    component: LandingPageComponent,
     canActivate: [AuthGuard],
     data: { roles: [Role.Admin] },
     children: [
       {
-        path:'student-grid',
-        component:StudentGridComponent
+        path: 'student-grid',
+        component: StudentGridComponent
       }
     ]
   },
   {
-    path:'register-student',
-    component:RegisterStudentComponent
+    path: 'register-student',
+    component: RegisterStudentComponent
   },
   {
-    path:'login',
+    path: 'login',
     component: LoginComponent
   },
   {
-    path:'**',
+    path: '**',
     redirectTo: ''
   }
 ];

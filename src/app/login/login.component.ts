@@ -64,8 +64,8 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     this.authenticationService.login(this.f.username.value, this.f.password.value)
         .subscribe(
-            data => {
-                if(data.role && data.role === Role.Admin){
+            user => {
+                if ( user.role && user.role === Role.Admin){
                   this.router.navigate(['/landing-page']);
                 } else{
                   this.router.navigate(['/home']);
