@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { first } from 'rxjs/operators';
 
-import { User } from '../models/user';
 import { Role } from '../models/role';
+import data from '../../assets/displayData.json';
 
 import { AuthenticationService } from './service/authentication.service';
 @Component({
@@ -18,6 +17,10 @@ export class LoginComponent implements OnInit {
   loading = false;
   submitted = false;
   error = '';
+  cardTitle: string;
+  credentials: any;
+  userError: string;
+  pwdError: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -32,11 +35,19 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.initDisplay();
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
   });
 
+  }
+
+  initDisplay(){
+    this.cardTitle = data.cardTitle;
+    this.credentials = data.credentials;
+    this.userError = data.userError;
+    this.pwdError = data.pwdError;
   }
 
   // convenience getter for easy access to form fields

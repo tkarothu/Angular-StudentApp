@@ -30,6 +30,20 @@
                     </div>
 
                 </div>
+                
+                <label class="form-field">
+                    Student Course *:
+                    <input type="text" formControlName="stdCourse" required>
+                </label>
+
+
+                <div *ngIf="stdCourse.invalid && (stdCourse.dirty || stdCourse.touched)" class="alert alert-danger">
+
+                    <div *ngIf="stdName.errors.required">
+                        Course is required.
+                    </div>
+
+                </div>
 
                 <div class="adress-field" formGroupName="stdAdress">
                     <h6>Address</h6>

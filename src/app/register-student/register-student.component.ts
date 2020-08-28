@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RegisterStudentService } from './service/register-student.service';
 
 @Component({
@@ -10,9 +10,12 @@ import { RegisterStudentService } from './service/register-student.service';
 export class RegisterStudentComponent implements OnInit {
 
   registrationForm = new FormGroup({
-    stdName: new FormControl('',[
+    stdName: new FormControl('', [
       Validators.required,
       Validators.minLength(4)
+    ]),
+     stdCourse: new FormControl('',[
+      Validators.required
     ]),
     stdAdress: new FormGroup({
       street: new FormControl(''),
@@ -25,8 +28,7 @@ export class RegisterStudentComponent implements OnInit {
   public loading: boolean;
   public showAlert: boolean;
 
-  constructor(public registerStudentService: RegisterStudentService,
-    private fb: FormBuilder) { }
+  constructor(public registerStudentService: RegisterStudentService) { }
 
   ngOnInit(): void {
   }
@@ -35,8 +37,8 @@ export class RegisterStudentComponent implements OnInit {
     this.loading = true;
     this.registerStudentService.registerStudent(this.registrationForm.value).subscribe(
         data => {
-         if(data.id){
-           this.loading = false;
+         if ( data.studentId){
+          this.loading = false;
           this.postId = data.id;
           this.registrationForm.reset();
           this.showAlert = true;
@@ -46,5 +48,6 @@ export class RegisterStudentComponent implements OnInit {
   }
 
   get stdName() { return this.registrationForm.get('stdName'); }
+  get stdCourse() { return this.registrationForm.get('stdCourse'); }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit } from '@angular/core';
 import { StudentGridService } from './service/student-grid.service';
 @Component({
   selector: 'app-student-grid',
@@ -7,14 +7,17 @@ import { StudentGridService } from './service/student-grid.service';
 })
 export class StudentGridComponent implements OnInit {
 
-  public studentList:any;
+  studentList:any;
+  loading: boolean;
 
   constructor(public studentGridService: StudentGridService) { }
 
   ngOnInit(): void {
+    this.loading = true;
     this.studentGridService.getStudents().subscribe(res => {
+      this.loading =  false;
       if(res){
-        this.studentList = res;
+       this.studentList = res;
       }
     });
   }

@@ -1,18 +1,19 @@
 <div class="container">
-    <div class="table-responsive-md">
+    <span *ngIf="loading" class="spinner-position spinner-border"></span>
+    <div *ngIf="!loading && studentList" class="table-responsive-md">
         <table class="table-position table table-bordered">
                 <thead>
                   <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Address</th>
+                    <th scope="col">Student Id</th>
+                    <th scope="col">Student Name</th>
+                    <th scope="col">Course</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let list of studentList">
-                    <th scope="row">{{list.id}}</th>
-                    <td>{{list.name}}</td>
-                    <td>{{list.address}}</td>
+                    <th scope="row">{{list.studentId}}</th>
+                    <td>{{list.studentName}}</td>
+                    <td>{{list.studentCourse}}</td>
                   </tr>
                 </tbody>
               </table>

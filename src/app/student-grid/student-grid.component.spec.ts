@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+
 
 import { StudentGridComponent } from './student-grid.component';
 
@@ -8,6 +10,7 @@ describe('StudentGridComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
       declarations: [ StudentGridComponent ]
     })
     .compileComponents();

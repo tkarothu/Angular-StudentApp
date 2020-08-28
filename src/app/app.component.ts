@@ -11,7 +11,6 @@ import { User } from './models/user';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'studentApp';
   user: User;
 
   constructor(private authenticationService: AuthenticationService) {

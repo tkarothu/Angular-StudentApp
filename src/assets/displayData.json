@@ -1,0 +1,17 @@
+{
+    "cardTitle" : "Student App Login",
+    "credentials" : [
+        {
+          "user": "Student",
+          "username": "student",
+          "password": "student"
+        },
+       {
+        "user": "Admin",
+        "username": "admin",
+        "password": "admin"
+       }
+      ],
+    "userError": "Username is required",
+    "pwdError": "Password is required"
+}
